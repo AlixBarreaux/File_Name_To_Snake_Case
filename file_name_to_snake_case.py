@@ -28,6 +28,10 @@ excluded_characters = []
 # ALSO ADD UTF8 AND THE 2 LAST CHARACTERS IN A SEPARATE LIST?
 
 
+def initialize():
+    build_character_list_to_exclude()
+
+
 # Merge UTF8 and special characters in a list of characters to exclude
 def build_character_list_to_exclude():
     for character in utf_eight_characters:
@@ -37,13 +41,29 @@ def build_character_list_to_exclude():
         excluded_characters.append(character)
 
 
+def set_folder_path():
+    # LEAVE BLANK FOR FOLDER WHERE SCRIPT IS!
+    global folder_path
+    folder_path = input("Enter the folder path to cycle through: ")
+    print("\n")
+
+    #set_folder_path()
+    if not os.path.exists(folder_path):
+        print("(!) ERROR: The path is invalid! Please verify the path and try again.")
+        set_folder_path()
+
+
 def convert_all_files_to_snake_case():
     new_file_name = ""
 
     old_file_path = ""
     new_file_path = ""
 
+    is_folder_empty = True
+
     for file in os.listdir(folder_path):
+        is_folder_empty = False
+
         old_file_path = folder_path + "/" + file
 
         new_file_name = file
@@ -51,7 +71,7 @@ def convert_all_files_to_snake_case():
         # Replace spaces with the space delimiter
         new_file_name = new_file_name.replace(" ", space_delimiter)
 
-        # Replace "_&_" by "_and_" because dj&dj and dj_&_dj
+        # Replace "_&_" by "_and_" because this example coule occur: dj&dj and dj_&_dj
         if ampersand_snake_case in new_file_name:
             new_file_name = new_file_name.replace(ampersand_snake_case, ampersand_replacer)
 
@@ -79,21 +99,30 @@ def convert_all_files_to_snake_case():
         os.rename(old_file_path, new_file_path)
 
 
+    # Check if at least one file is in the folder
+    if is_folder_empty:
+        print("(!) ERROR: There is no file in this directory, please choose a directory which contains at least one file!")
+        run()
+
+
+def run():
+    set_folder_path()
+    convert_all_files_to_snake_case()
+
+
 def main():
     global folder_path
 
     print("This program will convert all the files")
     print("in the given directory to snake_case.\n")
 
-    build_character_list_to_exclude()
+    initialize()
 
-    # LEAVE BLANK FOR FOLDER WHERE SCRIPT IS!
-    folder_path = input("Enter the folder path to cycle through: ")
-    print("\n")
+    run()
 
-    convert_all_files_to_snake_case()
+    print("The files were successfully renamed to snake case at this location:")
+    print(folder_path, "\n")
 
-    input("Press the enter key to exit...")
     sys.exit()
 
 
