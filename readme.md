@@ -3,17 +3,15 @@
 This command line tool renames all the files in the specified folder.
 This was not made recursive with subfolders due to some limitations with Python.
 
+WARNING: This tool was made for personal use and was tested on Linux Manjaro but not on other platforms.
+Error handling was not pushed very far since I use it for my personal needs.
+As a result, you may encounter errors if you don't type what's expected.
+
 
 # HOW TO USE IT
 
 
-## NOTE: The tool was made for personal use and was tested on Linux Manjaro but not on other platforms.
-
-Error handling was not pushed very far since I use it for my personal needs.
-As a result, you may encounter errors if you don't type what's expected.
-
-Make sure you installed Python!
-
+0) Make sure you installed Python!
 
 1) Download the project.
 
