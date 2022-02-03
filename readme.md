@@ -18,9 +18,9 @@ Make sure you installed Python!
 1) Download the project.
 
 2) Open the command prompt and cd into the project.
-EG: cd /home/yourusername/Downloads/File_Name_To_Snake_Case
+EG: `cd /home/yourusername/Downloads/File_Name_To_Snake_Case`
 
 3) Execute the project in the command line:
-python ./file_name_to_snake_case.py
+`python ./file_name_to_snake_case.py`
 
 4) Follow the instructions provided in the program on your terminal.
