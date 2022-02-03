@@ -1,0 +1,4 @@
+Copyright (c) 2022 AlixBarreaux
+
+Base template (modified for my needs) :
+https://www.free-css.com/free-css-templates/page275/triple-p
