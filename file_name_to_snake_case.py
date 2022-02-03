@@ -4,8 +4,8 @@ import os
 import sys
 
 """
-Warning! This program will operate on the given folder an only so it won't work
-RECURSIVELY!
+This command line tool renames all the files in the specified folder.
+Warning: This was not made recursive with subfolders due to some limitations with Python.
 """
 
 # Folder to process files in
@@ -47,7 +47,6 @@ def set_folder_path():
     folder_path = input("Enter the folder path to cycle through: ")
     print("\n")
 
-    #set_folder_path()
     if not os.path.exists(folder_path):
         print("(!) ERROR: The path is invalid! Please verify the path and try again.")
         set_folder_path()
@@ -113,11 +112,9 @@ def run():
 def main():
     global folder_path
 
-    print("This program will convert all the files")
-    print("in the given directory to snake_case.\n")
+    print("This program will convert all the files in the given directory to snake_case.\n")
 
     initialize()
-
     run()
 
     print("The files were successfully renamed to snake case at this location:")
